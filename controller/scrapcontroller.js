@@ -15,7 +15,7 @@ const scrap = async (req, res) => {
   try {
     const today = formatDate(); 
     console.log(today);
-    const url = `https://www.napanta.com/te/market-price/andhra-pradesh/krishna/tiruvuru/${today}`;
+    const url = `https://www.napanta.com/market-price/andhra-pradesh/krishna/tiruvuru/${today}`;
     
 
     const { data } = await axios.get(url);
@@ -72,4 +72,5 @@ for (let i = 0; i < rows.length; i++) {
     minPrice: $(tds[4]).text().trim(),
     date: today,
   });
+
 }*/
