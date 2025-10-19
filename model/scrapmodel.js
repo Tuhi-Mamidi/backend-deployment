@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const MarketPriceSchema = new mongoose.Schema({
   commodity: String,
+  comm:String,
   maxPrice: String,
   avgPrice: String,
   minPrice: String,
@@ -9,3 +10,4 @@ const MarketPriceSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model("MarketPrice", MarketPriceSchema);
+
