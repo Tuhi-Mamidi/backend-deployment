@@ -32,7 +32,7 @@ const create2 = async (req, res) => {
             names_te: names_t,
             landholder,
             Identity,
-            Idenity_te: Identity_t,
+            Identity_te: Identity_t,
             price,
             sdate,
             edate
@@ -118,4 +118,5 @@ const del2=async(req,res)=>{
 }
 
 module.exports = { create2,get2,getone2 ,update2,del2};
+
 
