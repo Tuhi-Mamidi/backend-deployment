@@ -34,6 +34,7 @@ for (let i = 0; i < rows.length; i++) {
 
   results.push({
     commodity: commodity_te,
+    comm:commod,
     maxPrice: $(tds[3]).text().trim(),
     avgPrice: $(tds[4]).text().trim(),
     minPrice: $(tds[5]).text().trim(),
