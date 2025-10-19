@@ -67,6 +67,7 @@ for (let i = 0; i < rows.length; i++) {
 
   results.push({
     commodity: commodity_te,
+    comm:commod,
     maxPrice: $(tds[2]).text().trim(),
     avgPrice: $(tds[3]).text().trim(),
     minPrice: $(tds[4]).text().trim(),
@@ -74,4 +75,5 @@ for (let i = 0; i < rows.length; i++) {
   });
 
 }*/
+
 
