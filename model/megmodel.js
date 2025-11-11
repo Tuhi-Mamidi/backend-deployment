@@ -4,7 +4,12 @@ const userSchema = new mongoose.Schema({
     meg: {
         type: String,
         required: true
+    },
+    phone:{
+        type:String,
+        required:true
     }
 });
 
 module.exports = mongoose.model("Message", userSchema);
+
