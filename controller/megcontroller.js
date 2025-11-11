@@ -1,10 +1,13 @@
 const Message = require("../model/megmodel.js");
 const createm = async (req, res) => {
     try {
-           const data = req.body;
-
-        const userData = new Message(data);
-
+          
+             const { meg, phone } = req.body;
+        
+const userData = new Message({
+      meg,
+      phone,
+    });
      const savedData = await userData.save();
      res.status(200).json(savedData);
     } catch (error) {
@@ -36,4 +39,5 @@ const delm=async(req,res)=>{
     res.status(500).json({ msg: "Internal server error", error: error.message });
     }
 }
+
 module.exports = { createm,getm,delm};
