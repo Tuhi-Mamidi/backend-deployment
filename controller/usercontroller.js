@@ -10,16 +10,16 @@ const create = async (req, res) => {
 
         try {
             // Translate seedName and type in parallel using Promise.all() for better performance
-            const [translatedSeedResult, translatedTypeResult,tname] = await Promise.all([
+            const [translatedSeedResult, translatedTypeResult,tname1] = await Promise.all([
                 translate(seedName, { to: 'te' }),
                 translate(type, { to: 'te' }),
-                translate(tname,{to:'te'})
+                translate(name,{to:'te'})
             ]);
 
             // The translated text is on the .text property of the result object
             translatedSeedName = translatedSeedResult.text;
             translatedType = translatedTypeResult.text;
-            tname=tname.text;
+            tname=tname1.text;
 
         } catch (err) {
             console.warn("Translation failed, saving original values:", err.message);
@@ -30,7 +30,7 @@ const create = async (req, res) => {
             seedName_te: translatedSeedName,
             type,
             name,
-            name_te:tname,
+            name:tname,
             type_te: translatedType,
             price,
             quantity
@@ -116,5 +116,6 @@ const del=async(req,res)=>{
 }
 
 module.exports = { create,get,getone ,update,del};
+
 
 
