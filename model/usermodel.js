@@ -10,6 +10,11 @@ const userSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+       name:{type: String,
+        required:true
+    },
+    name_te:{type: String
+    },
     type_te: { type: String }, 
     quantity: {
         type: Number
@@ -20,4 +25,5 @@ const userSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model("User", userSchema);
+
 
