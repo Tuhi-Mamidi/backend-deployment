@@ -3,15 +3,13 @@ const Login = require("../model/loginmodel.js");
 
 const register = async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { username, password,role } = req.body;
 
     const existingUser = await Login.findOne({ username });
     if (existingUser) {
       return res.status(400).json({ message: "User already exists" });
-    }
-
-    
-    const newUser = new Login({ username, password });
+    } 
+    const newUser = new Login({ username, password,role });
     await newUser.save();
 
     res.status(201).json({ message: "User registered successfully" });
@@ -23,13 +21,15 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { username, password,role } = req.body;
 
     const user = await Login.findOne({ username });
     if (!user) {
       return res.status(401).json({ message: "User not found" });
     }
-
+  if (user.role !== role) {
+      return res.status(403).json({ message: "Access denied: Role mismatch" });
+    }
   
     if (user.password !== password) {
       return res.status(401).json({ message: "Invalid password" });
@@ -65,3 +65,4 @@ const changePassword = async (req, res) => {
 };
 
 module.exports = { register, login, changePassword };
+
