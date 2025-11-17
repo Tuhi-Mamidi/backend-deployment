@@ -27,9 +27,9 @@ const login = async (req, res) => {
     if (!user) {
       return res.status(401).json({ message: "User not found" });
     }
-  if (user.role !== role) {
+  /*if (user.role !== role) {
       return res.status(403).json({ message: "Access denied: Role mismatch" });
-    }
+    }*/
   
     if (user.password !== password) {
       return res.status(401).json({ message: "Invalid password" });
@@ -65,4 +65,5 @@ const changePassword = async (req, res) => {
 };
 
 module.exports = { register, login, changePassword };
+
 
