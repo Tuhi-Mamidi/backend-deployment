@@ -30,7 +30,7 @@ const create = async (req, res) => {
             seedName_te: translatedSeedName,
             type,
             name,
-            name:tname,
+            name_te:tname,
             type_te: translatedType,
             price,
             quantity
@@ -116,6 +116,7 @@ const del=async(req,res)=>{
 }
 
 module.exports = { create,get,getone ,update,del};
+
 
 
 
